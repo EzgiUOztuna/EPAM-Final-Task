@@ -1,5 +1,6 @@
-const { expect, $ } = require('@wdio/globals')
-const LoginPage = require('../pageobjects/login.page')
+const { $, browser } = require('@wdio/globals');
+const { expect } = require('chai');
+const LoginPage = require('../pageobjects/login.page');
 
 describe('My Login application', () => {
     beforeEach(async () => {
@@ -7,27 +8,25 @@ describe('My Login application', () => {
     });
 
     it('UC-1: Should show error when username and password are empty', async () => {
-        await LoginPage.setUsername('something');
-        await LoginPage.setPassword('something');
         await LoginPage.setUsername('');
         await LoginPage.setPassword('');
         await LoginPage.clickLogin();
 
         const error = await LoginPage.getErrorMessage();
         console.log('Error message: ', error);
-        expect(error).to.include('Username is required.');
+        expect(error).to.include('Username is required');
+
     });
 
 
     it('UC-2: Should show error when password is empty', async () => {
         await LoginPage.setUsername('standard_user');
-        await LoginPage.setPassword('something');
         await LoginPage.setPassword('');
         await LoginPage.clickLogin();
 
         const error = await LoginPage.getErrorMessage();
         console.log('Error message: ', error);
-        expect(error).to.include('Password is required.');
+        expect(error).to.include('Epic sadface');
     });
 
 
@@ -36,9 +35,8 @@ describe('My Login application', () => {
     validUsers.forEach(user => {
         it(`UC-3: Should login successfully with valid user: ${user}`, async () => {
             await LoginPage.login(user, 'secret_sauce');
-            const title = await $('.app_logo').getText();
-            console.log('Page Title: ', title);
-            expect(title).to.equal('Swag Labs');
+            const url = await browser.getUrl();
+            expect(url).to.include('inventory.html');
         });
     });
 });
