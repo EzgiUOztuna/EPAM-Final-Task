@@ -34,13 +34,13 @@ Final Task
 
 ### UC-3: Login attempts with various users
 
- Users;                
- `standard_user`           
- `locked_out_user`         
- `problem_user`            
- `performance_glitch_user` 
- `error_user`              
- `visual_user`             
+ ✅ Users;                
+    `standard_user`           
+    `locked_out_user`         
+    `problem_user`            
+    `performance_glitch_user` 
+    `error_user`              
+    `visual_user`             
 
 ## 🛠️ Installation & Running the Tests
 
