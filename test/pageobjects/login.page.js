@@ -26,13 +26,9 @@ class LoginPage extends Page {
     }
 
     async getErrorMessage() {
-        return await this.errorMsg.getText();
+        return $('.error-message-container').getText();
     }
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
     async login(username, password) {
         if (username !== undefined) await this.setUsername(username);
         if (password !== undefined) await this.setPassword(password);
