@@ -5,9 +5,9 @@ const SecurePage = require('../pageobjects/secure.page')
 describe('My Login application', () => {
     beforeEach(async () => {
         await LoginPage.open();
-    })
-    it('should login with valid credentials', async () => {
+    });
 
+    it('should login with valid credentials', async () => {
 
         await LoginPage.login('tomsmith', 'SuperSecretPassword!')
         await expect(SecurePage.flashAlert).toBeExisting()
@@ -17,7 +17,10 @@ describe('My Login application', () => {
 
 
     it('UC-1: Should show error when username and password are empty', async () => {
-
+        await LoginPage.setUsername('something');
+        await LoginPage.setPassword('something');
+        await LoginPage.setUsername('');
+        await LoginPage.setPassword('');
     });
 })
 
