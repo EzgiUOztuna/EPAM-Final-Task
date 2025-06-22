@@ -30,5 +30,15 @@ describe('My Login application', () => {
         console.log('Error message: ', error);
         expect(error).to.include('Password is required.');
     });
+
+
+    const validUsers = [standard_user, locked_out_user, problem_user, performance_glitch_user, error_user, visual_user];
+
+    validUsers.forEach(user => {
+        it(`UC-3: Should login successfully with valid user: ${user}`, async () => {
+            await LoginPage.login(user, 'secret_sauce');
+
+        })
+    })
 })
 
