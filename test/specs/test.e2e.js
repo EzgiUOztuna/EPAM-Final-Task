@@ -7,20 +7,15 @@ describe('My Login application', () => {
         await LoginPage.open();
     });
 
-    it('should login with valid credentials', async () => {
-
-        await LoginPage.login('tomsmith', 'SuperSecretPassword!')
-        await expect(SecurePage.flashAlert).toBeExisting()
-        await expect(SecurePage.flashAlert).toHaveText(
-            expect.stringContaining('You logged into a secure area!'))
-    });
-
-
     it('UC-1: Should show error when username and password are empty', async () => {
         await LoginPage.setUsername('something');
         await LoginPage.setPassword('something');
         await LoginPage.setUsername('');
         await LoginPage.setPassword('');
+
+        const error = await LoginPage.getErrorMessage();
+        console.log('Error message: ', error);
+        expect(error).to.include('Username is required.');
     });
 })
 
