@@ -11,7 +11,7 @@ This project is an automated end-to-end test suite for the [SauceDemo Login Page
 - ChromeDriver
 
 ## 📂 Project Structure
-
+```
 Final Task
 ├── test
 │   ├── specs
@@ -22,7 +22,7 @@ Final Task
 ├── wdio.conf.js # WebdriverIO config file
 ├── package.json
 └── README.md # You are here :)
-
+```
 
 ## 🧪 Test Cases
 
