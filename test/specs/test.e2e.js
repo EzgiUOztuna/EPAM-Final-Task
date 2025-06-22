@@ -32,7 +32,7 @@ describe('My Login application', () => {
     const users = [
         { username: 'standard_user', shouldLogin: true },
         { username: 'locked_out_user', shouldLogin: false, expectedError: 'Epic sadface: Sorry, this user has been locked out.' },
-        { username: 'problem_user', shouldLogin: true }, // but wrong pictures
+        { username: 'problem_user', shouldLogin: false }, // but wrong pictures
         { username: 'performance_glitch_user', shouldLogin: false }, //delayed
         { username: 'error_user', shouldLogin: false },
         { username: 'visual_user', shouldLogin: false },
