@@ -1,6 +1,5 @@
-const { expect } = require('@wdio/globals')
+const { expect, $ } = require('@wdio/globals')
 const LoginPage = require('../pageobjects/login.page')
-const SecurePage = require('../pageobjects/secure.page')
 
 describe('My Login application', () => {
     beforeEach(async () => {
@@ -37,8 +36,10 @@ describe('My Login application', () => {
     validUsers.forEach(user => {
         it(`UC-3: Should login successfully with valid user: ${user}`, async () => {
             await LoginPage.login(user, 'secret_sauce');
-
-        })
-    })
-})
+            const title = await $('.app_logo').getText();
+            console.log('Page Title: ', title);
+            expect(title).to.equal('Swag Labs');
+        });
+    });
+});
 
