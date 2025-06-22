@@ -32,14 +32,14 @@ describe('My Login application', () => {
     const users = [
         { username: 'standard_user', shouldLogin: true },
         { username: 'locked_out_user', shouldLogin: false, expectedError: 'Epic sadface: Sorry, this user has been locked out.' },
-        { username: 'problem_user', shouldLogin: true }, // wrong pictures
-        { username: 'performance_glitch_user', shouldLogin: false }, //delayed login
+        { username: 'problem_user', shouldLogin: true }, // but wrong pictures
+        { username: 'performance_glitch_user', shouldLogin: false }, //delayed
         { username: 'error_user', shouldLogin: false },
         { username: 'visual_user', shouldLogin: false },
     ];
 
     users.forEach((user) => {
-        it(`UC-3: Should behave correctly with user: ${user}`, async () => {
+        it(`UC-3: Should behave correctly with user: ${user.username}`, async () => {
             await LoginPage.open();
             await LoginPage.login(user.username, 'secret_sauce');
 
