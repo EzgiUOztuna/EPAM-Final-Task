@@ -10,7 +10,7 @@ class LoginPage extends Page {
      */
     get inputUsername() { return $('#user-name'); }
     get inputPassword() { return $('#password'); }
-    get btnSubmit() { return $('button[type="submit"]'); }
+    get btnSubmit() { return $('#login-button'); }
     get errorMsg() { return $('h3[data-test="error"]'); }
 
     async setUsername(username) {
@@ -43,7 +43,7 @@ class LoginPage extends Page {
      * overwrite specific options to adapt it to page object
      */
     open() {
-        return super.open('login');
+        return browser.url(`https://www.saucedemo.com/`);
     }
 }
 
