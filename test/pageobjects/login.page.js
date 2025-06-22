@@ -11,7 +11,7 @@ class LoginPage extends Page {
     get inputUsername() { return $('#user-name'); }
     get inputPassword() { return $('#password'); }
     get btnSubmit() { return $('#login-button'); }
-    get errorMsg() { return $('.error-message-container'); }
+    get errorMsg() { return $('#login_button_container form div:nth-child(3) h3'); }
 
     async setUsername(username) {
         await this.inputUsername.setValue(username);
@@ -26,7 +26,7 @@ class LoginPage extends Page {
     }
 
     async getErrorMessage() {
-        //await this.errorMsg.waitForDisplayed();
+        await this.errorMsg.waitForDisplayed();
         return await this.errorMsg.getText();
     }
 
