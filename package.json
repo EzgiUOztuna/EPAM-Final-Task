@@ -16,6 +16,7 @@
     "@wdio/mocha-framework": "^9.15.0",
     "@wdio/selenium-standalone-service": "^8.14.0",
     "@wdio/spec-reporter": "^9.15.0",
+    "chai": "^5.2.0",
     "chromedriver": "^137.0.4",
     "wdio-chromedriver-service": "^8.1.1"
   }
