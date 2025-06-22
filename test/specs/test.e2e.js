@@ -29,15 +29,32 @@ describe('My Login application', () => {
         expect(error).to.include('Epic sadface');
     });
 
+    const users = [
+        { username: 'standard_user', shouldLogin: true },
+        { username: 'locked_out_user', shouldLogin: false, expectedError: 'Epic sadface: Sorry, this user has been locked out.' },
+        { username: 'problem_user', shouldLogin: true }, // Hatalı görseller
+        { username: 'performance_glitch_user', shouldLogin: false }, //Gecikmeli giriş
+        { username: 'error_user', shouldLogin: false },
+        { username: 'visual_user', shouldLogin: false },
+    ];
 
-    const validUsers = ['standard_user', 'locked_out_user', 'problem_user', 'performance_glitch_user', 'error_user', 'visual_user'];
+    users.forEach((user) => {
+        it(`UC-3: Should behave correctly with user: ${user}`, async () => {
+            await LoginPage.open();
+            await LoginPage.login(user.username, 'secret_sauce');
 
-    validUsers.forEach(user => {
-        it(`UC-3: Should login successfully with valid user: ${user}`, async () => {
-            await LoginPage.login(user, 'secret_sauce');
-            const url = await browser.getUrl();
-            expect(url).to.include('inventory.html');
+            const currentUrl = await browser.getUrl();
+
+            if (user.shouldLogin) {
+                expect(currentUrl).to.include('inventory.html');
+            } else {
+                expect(currentUrl).to.not.include('inventory.html');
+
+                if (user.expectedError) {
+                    const error = await LoginPage.getErrorMessage();
+                    expect(error).to.include(user.expectedError);
+                }
+            }
         });
     });
 });
-
