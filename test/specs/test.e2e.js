@@ -12,10 +12,23 @@ describe('My Login application', () => {
         await LoginPage.setPassword('something');
         await LoginPage.setUsername('');
         await LoginPage.setPassword('');
+        await LoginPage.clickLogin();
 
         const error = await LoginPage.getErrorMessage();
         console.log('Error message: ', error);
         expect(error).to.include('Username is required.');
+    });
+
+
+    it('UC-2: Should show error when password is empty', async () => {
+        await LoginPage.setUsername('standard_user');
+        await LoginPage.setPassword('something');
+        await LoginPage.setPassword('');
+        await LoginPage.clickLogin();
+
+        const error = await LoginPage.getErrorMessage();
+        console.log('Error message: ', error);
+        expect(error).to.include('Password is required.');
     });
 })
 
