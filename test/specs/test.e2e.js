@@ -31,7 +31,7 @@ describe('My Login application', () => {
     });
 
 
-    const validUsers = [standard_user, locked_out_user, problem_user, performance_glitch_user, error_user, visual_user];
+    const validUsers = ['standard_user', 'locked_out_user', 'problem_user', 'performance_glitch_user', 'error_user', 'visual_user'];
 
     validUsers.forEach(user => {
         it(`UC-3: Should login successfully with valid user: ${user}`, async () => {
