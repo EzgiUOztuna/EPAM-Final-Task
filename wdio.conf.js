@@ -50,8 +50,18 @@ exports.config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'chrome'
-    }],
+        browserName: 'chrome',
+        maxInstances: 3,
+    },
+        //{
+        //    browserName: 'MicrosoftEdge',
+        //    maxInstances: 2,
+        //},
+        //{
+        //    browserName: 'firefox',
+        //    maxInstances: 2,
+        //}
+    ],
 
     //
     // ===================
