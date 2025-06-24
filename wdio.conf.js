@@ -53,10 +53,10 @@ exports.config = {
         browserName: 'chrome',
         maxInstances: 3,
     },
-        //{
-        //    browserName: 'MicrosoftEdge',
-        //    maxInstances: 2,
-        //},
+    {
+        browserName: 'MicrosoftEdge',
+        maxInstances: 2,
+    },
         //{
         //    browserName: 'firefox',
         //    maxInstances: 2,
