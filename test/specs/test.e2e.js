@@ -33,9 +33,9 @@ describe('My Login application', () => {
         { username: 'standard_user', shouldLogin: true },
         { username: 'locked_out_user', shouldLogin: false, expectedError: 'Epic sadface: Sorry, this user has been locked out.' },
         { username: 'problem_user', shouldLogin: true }, // but wrong pictures
-        { username: 'performance_glitch_user', shouldLogin: false }, //delayed
-        { username: 'error_user', shouldLogin: false },
-        { username: 'visual_user', shouldLogin: false },
+        { username: 'performance_glitch_user', shouldLogin: true }, //delayed
+        { username: 'error_user', shouldLogin: true },
+        { username: 'visual_user', shouldLogin: true },
     ];
 
     users.forEach((user) => {
@@ -46,6 +46,13 @@ describe('My Login application', () => {
             const currentUrl = await browser.getUrl();
 
             if (user.shouldLogin) {
+                /*await browser.waitUntil(
+                    async () => (await browser.getUrl()).includes('inventory.html'),
+                    {
+                        timeout: 30000,
+                        timeoutMsg: `Beklenen URL'ye yönlenemedi: ${user.username}`
+                    }
+                );*/
                 expect(currentUrl).to.include('inventory.html');
             } else {
                 expect(currentUrl).to.not.include('inventory.html');
