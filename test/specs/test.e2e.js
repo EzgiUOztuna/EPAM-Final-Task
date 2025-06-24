@@ -46,13 +46,13 @@ describe('My Login application', () => {
             const currentUrl = await browser.getUrl();
 
             if (user.shouldLogin) {
-                /*await browser.waitUntil(
+                await browser.waitUntil(
                     async () => (await browser.getUrl()).includes('inventory.html'),
                     {
                         timeout: 30000,
                         timeoutMsg: `Beklenen URL'ye yönlenemedi: ${user.username}`
                     }
-                );*/
+                );
                 expect(currentUrl).to.include('inventory.html');
             } else {
                 expect(currentUrl).to.not.include('inventory.html');
