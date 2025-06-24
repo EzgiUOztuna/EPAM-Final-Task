@@ -13,7 +13,7 @@ This project is an automated end-to-end test suite for the [SauceDemo Login Page
 ## 🌐 Browsers
 
 - Chrome
-- Edge
+- MicrosoftEdge
 
 ## 📂 Project Structure
 ```
