@@ -10,6 +10,11 @@ This project is an automated end-to-end test suite for the [SauceDemo Login Page
 - Page Object Model (POM)
 - ChromeDriver
 
+## 🌐 Browsers
+
+- Chrome
+- MicrosoftEdge
+
 ## 📂 Project Structure
 ```
 Final Task
