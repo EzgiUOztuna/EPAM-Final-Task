@@ -50,7 +50,7 @@ describe('My Login application', () => {
                     async () => (await browser.getUrl()).includes('inventory.html'),
                     {
                         timeout: 30000,
-                        timeoutMsg: `Beklenen URL'ye yönlenemedi: ${user.username}`
+                        timeoutMsg: `Could not redirect to expected URL: ${user.username}`
                     }
                 );
                 expect(currentUrl).to.include('inventory.html');
