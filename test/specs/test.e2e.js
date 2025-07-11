@@ -49,7 +49,7 @@ describe('My Login application', () => {
                 await browser.waitUntil(
                     async () => (await browser.getUrl()).includes('inventory.html'),
                     {
-                        timeout: 30000,
+                        timeout: 10000,
                         timeoutMsg: `Could not redirect to expected URL: ${user.username}`
                     }
                 );
