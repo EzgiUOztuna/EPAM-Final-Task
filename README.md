@@ -8,7 +8,6 @@ This project is an automated end-to-end test suite for the [SauceDemo Login Page
 - Mocha
 - Chai
 - Page Object Model (POM)
-- ChromeDriver
 
 ## 🌐 Browsers
 
